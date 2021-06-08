@@ -1,13 +1,13 @@
-package br.com.zupedu.proposta;
+package br.com.zupedu.proposal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PropostaApplication {
+public class ProposalApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PropostaApplication.class, args);
+		SpringApplication.run(ProposalApplication.class, args);
 	}
 
 }
