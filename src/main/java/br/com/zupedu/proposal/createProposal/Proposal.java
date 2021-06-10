@@ -1,6 +1,8 @@
 package br.com.zupedu.proposal.createProposal;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -32,6 +34,9 @@ public class Proposal {
     @Positive
     private BigDecimal salary;
 
+    @Enumerated(EnumType.STRING)
+    private StatusSolicitation status;
+
     @Deprecated
     public Proposal() {};
 
@@ -50,5 +55,17 @@ public class Proposal {
 
     public UUID getId() {
         return id;
+    }
+
+    public String getDocument() {
+        return document;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setStatus(StatusSolicitation status) {
+        this.status = status;
     }
 }
