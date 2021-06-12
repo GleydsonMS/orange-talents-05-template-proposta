@@ -65,12 +65,28 @@ public class Proposal {
         return document;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public String getName() {
         return name;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public BigDecimal getSalary() {
+        return salary;
+    }
+
     public StatusSolicitation getStatus() {
         return status;
+    }
+
+    public Card getCard() {
+        return card;
     }
 
     public void setStatus(StatusSolicitation status) {
