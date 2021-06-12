@@ -1,11 +1,20 @@
-package br.com.zupedu.proposal.externalSystems;
+package br.com.zupedu.proposal.externalSystems.solicitations;
 
 import br.com.zupedu.proposal.createProposal.Proposal;
+import br.com.zupedu.proposal.validators.CPForCNPJ;
+
+import javax.validation.constraints.NotBlank;
 
 public class ProposalSolicitationRequest {
 
+    @NotBlank
+    @CPForCNPJ
     private String documento;
+
+    @NotBlank
     private String nome;
+
+    @NotBlank
     private String idProposta;
 
     @Deprecated

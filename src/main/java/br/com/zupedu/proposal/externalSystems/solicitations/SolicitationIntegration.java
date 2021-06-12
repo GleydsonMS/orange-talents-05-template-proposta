@@ -1,12 +1,12 @@
-package br.com.zupedu.proposal.externalSystems;
+package br.com.zupedu.proposal.externalSystems.solicitations;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "solicitation", url = "http://localhost:9999/api/solicitacao")
+@FeignClient(name = "solicitation", url = "${external.api.solicitation}")
 public interface SolicitationIntegration {
 
-    @PostMapping("/")
+    @PostMapping("/api/solicitacao")
     ProposalSolicitationResponse evaluate(@RequestBody ProposalSolicitationRequest request);
 }

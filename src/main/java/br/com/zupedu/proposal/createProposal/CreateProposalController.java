@@ -1,6 +1,6 @@
 package br.com.zupedu.proposal.createProposal;
 
-import br.com.zupedu.proposal.externalSystems.SolicitationIntegration;
+import br.com.zupedu.proposal.externalSystems.solicitations.SolicitationIntegration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +29,7 @@ public class CreateProposalController {
     private CheckSolicitation solicitation;
 
     @PostMapping
-    public ResponseEntity<?> createProposal(@RequestBody @Valid NewProposalRequest request,
+    public  ResponseEntity<?> createProposal(@RequestBody @Valid NewProposalRequest request,
                                             UriComponentsBuilder uriComponentsBuilder) {
 
         checkAlreadyExistDocument.check(request, proposalRepository);

@@ -1,7 +1,10 @@
-package br.com.zupedu.proposal.externalSystems;
+package br.com.zupedu.proposal.externalSystems.solicitations;
+
+import javax.validation.constraints.NotBlank;
 
 public class ProposalSolicitationResponse {
 
+    @NotBlank
     private String resultadoSolicitacao;
 
     @Deprecated

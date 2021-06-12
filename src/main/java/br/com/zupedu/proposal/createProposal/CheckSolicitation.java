@@ -1,8 +1,8 @@
 package br.com.zupedu.proposal.createProposal;
 
-import br.com.zupedu.proposal.externalSystems.ProposalSolicitationRequest;
-import br.com.zupedu.proposal.externalSystems.ProposalSolicitationResponse;
-import br.com.zupedu.proposal.externalSystems.SolicitationIntegration;
+import br.com.zupedu.proposal.externalSystems.solicitations.ProposalSolicitationRequest;
+import br.com.zupedu.proposal.externalSystems.solicitations.ProposalSolicitationResponse;
+import br.com.zupedu.proposal.externalSystems.solicitations.SolicitationIntegration;
 import feign.FeignException;
 import org.springframework.stereotype.Component;
 
