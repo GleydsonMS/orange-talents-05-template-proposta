@@ -1,6 +1,8 @@
-package br.com.zupedu.proposal.createProposal;
+package br.com.zupedu.proposal.createProposal.repositories;
 
-import br.com.zupedu.proposal.cardsAssociation.Card;
+import br.com.zupedu.proposal.cardsAssociation.entities.Card;
+import br.com.zupedu.proposal.createProposal.enums.StatusSolicitation;
+import br.com.zupedu.proposal.createProposal.entities.Proposal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

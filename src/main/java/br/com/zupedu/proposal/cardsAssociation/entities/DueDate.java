@@ -1,4 +1,4 @@
-package br.com.zupedu.proposal.cardsAssociation;
+package br.com.zupedu.proposal.cardsAssociation.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

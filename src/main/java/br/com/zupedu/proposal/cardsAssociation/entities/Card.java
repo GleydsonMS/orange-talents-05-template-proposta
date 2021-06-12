@@ -1,6 +1,6 @@
-package br.com.zupedu.proposal.cardsAssociation;
+package br.com.zupedu.proposal.cardsAssociation.entities;
 
-import br.com.zupedu.proposal.createProposal.Proposal;
+import br.com.zupedu.proposal.createProposal.entities.Proposal;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

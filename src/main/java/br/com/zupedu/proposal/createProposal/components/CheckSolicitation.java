@@ -1,5 +1,7 @@
-package br.com.zupedu.proposal.createProposal;
+package br.com.zupedu.proposal.createProposal.components;
 
+import br.com.zupedu.proposal.createProposal.entities.Proposal;
+import br.com.zupedu.proposal.createProposal.enums.StatusSolicitation;
 import br.com.zupedu.proposal.externalSystems.solicitations.ProposalSolicitationRequest;
 import br.com.zupedu.proposal.externalSystems.solicitations.ProposalSolicitationResponse;
 import br.com.zupedu.proposal.externalSystems.solicitations.SolicitationIntegration;

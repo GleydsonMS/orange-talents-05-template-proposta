@@ -1,9 +1,9 @@
 package br.com.zupedu.proposal.externalSystems.accounts;
 
-import br.com.zupedu.proposal.cardsAssociation.Card;
-import br.com.zupedu.proposal.cardsAssociation.DueDate;
-import br.com.zupedu.proposal.createProposal.Proposal;
-import br.com.zupedu.proposal.createProposal.ProposalRepository;
+import br.com.zupedu.proposal.cardsAssociation.entities.Card;
+import br.com.zupedu.proposal.cardsAssociation.entities.DueDate;
+import br.com.zupedu.proposal.createProposal.entities.Proposal;
+import br.com.zupedu.proposal.createProposal.repositories.ProposalRepository;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

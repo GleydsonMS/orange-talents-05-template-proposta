@@ -1,6 +1,7 @@
-package br.com.zupedu.proposal.createProposal;
+package br.com.zupedu.proposal.createProposal.entities;
 
-import br.com.zupedu.proposal.cardsAssociation.Card;
+import br.com.zupedu.proposal.cardsAssociation.entities.Card;
+import br.com.zupedu.proposal.createProposal.enums.StatusSolicitation;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

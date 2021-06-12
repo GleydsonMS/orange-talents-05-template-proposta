@@ -1,5 +1,6 @@
-package br.com.zupedu.proposal.createProposal;
+package br.com.zupedu.proposal.createProposal.dtos;
 
+import br.com.zupedu.proposal.createProposal.entities.Proposal;
 import br.com.zupedu.proposal.validators.CPForCNPJ;
 
 import javax.validation.constraints.Email;

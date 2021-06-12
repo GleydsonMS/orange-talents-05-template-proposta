@@ -1,6 +1,6 @@
 package br.com.zupedu.proposal.externalSystems.solicitations;
 
-import br.com.zupedu.proposal.createProposal.Proposal;
+import br.com.zupedu.proposal.createProposal.entities.Proposal;
 import br.com.zupedu.proposal.validators.CPForCNPJ;
 
 import javax.validation.constraints.NotBlank;

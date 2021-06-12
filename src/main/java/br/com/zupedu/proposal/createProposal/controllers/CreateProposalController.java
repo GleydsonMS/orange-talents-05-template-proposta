@@ -1,5 +1,10 @@
-package br.com.zupedu.proposal.createProposal;
+package br.com.zupedu.proposal.createProposal.controllers;
 
+import br.com.zupedu.proposal.createProposal.dtos.NewProposalRequest;
+import br.com.zupedu.proposal.createProposal.entities.Proposal;
+import br.com.zupedu.proposal.createProposal.repositories.ProposalRepository;
+import br.com.zupedu.proposal.createProposal.components.CheckAlreadyExistDocument;
+import br.com.zupedu.proposal.createProposal.components.CheckSolicitation;
 import br.com.zupedu.proposal.externalSystems.solicitations.SolicitationIntegration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +34,7 @@ public class CreateProposalController {
     private CheckSolicitation solicitation;
 
     @PostMapping
-    public  ResponseEntity<?> createProposal(@RequestBody @Valid NewProposalRequest request,
+    public ResponseEntity<?> createProposal(@RequestBody @Valid NewProposalRequest request,
                                             UriComponentsBuilder uriComponentsBuilder) {
 
         checkAlreadyExistDocument.check(request, proposalRepository);

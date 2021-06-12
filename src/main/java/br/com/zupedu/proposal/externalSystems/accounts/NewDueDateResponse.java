@@ -1,6 +1,6 @@
 package br.com.zupedu.proposal.externalSystems.accounts;
 
-import br.com.zupedu.proposal.cardsAssociation.DueDate;
+import br.com.zupedu.proposal.cardsAssociation.entities.DueDate;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
