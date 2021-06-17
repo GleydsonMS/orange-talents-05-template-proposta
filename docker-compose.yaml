@@ -61,6 +61,7 @@ services:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: Pa55w0rd
       POSTGRES_PORT_5432_TCP_ADDR: 127.0.0.1
+      KEYCLOAK_FRONTEND_URL: http://keycloak:8080/auth
 
   analise:
     image: 'zupacademy/analise-financeira'
@@ -141,13 +142,16 @@ services:
     restart: always
     container_name: propostas-api
     environment:
+      APP_PORT: 8081
       URL_DATABASE: postgres-proposta:5432/proposal
       USER_DATABASE: postgres
       PASSWORD_DATABASE: docker
       URL_API_ACCOUNTS: http://contas:8888
       URL_API_SOLICITATION: http://analise:9999
+      KEYCLOAK_ISSUER_URI: http://keycloak:8080/auth/realms/proposals
+      KEYCLOAK_JWKS_URI: http://keycloak:8080/auth/realms/proposals/protocol/openid-connect/certs
     ports:
-      - "8080:8080"
+      - "8081:8081"
     depends_on:
       - "postgres-proposta"
 
