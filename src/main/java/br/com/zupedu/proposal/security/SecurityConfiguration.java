@@ -5,6 +5,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -18,6 +19,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         .antMatchers(HttpMethod.POST, "/cards/**").hasAuthority("SCOPE_proposal-scope")
                         .antMatchers(HttpMethod.POST, "/proposals/**").hasAuthority("SCOPE_proposal-scope")
                         .anyRequest().authenticated()
-        ).oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
+        ).csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and().oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
     }
 }
