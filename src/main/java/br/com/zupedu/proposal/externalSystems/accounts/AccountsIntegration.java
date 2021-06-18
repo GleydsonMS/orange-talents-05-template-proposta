@@ -1,10 +1,7 @@
 package br.com.zupedu.proposal.externalSystems.accounts;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -19,4 +16,7 @@ public interface AccountsIntegration {
 
     @GetMapping("/api/cartoes/{id}")
     NewCardResponse findCardId(@Valid @PathVariable("id") String id);
+
+    @PostMapping("/api/cartoes/{id}/bloqueios")
+    BlockResponse SendCardBlocked(@PathVariable("id") String id, @Valid BlockRequest request);
 }
