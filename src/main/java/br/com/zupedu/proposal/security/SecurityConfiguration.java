@@ -18,6 +18,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         .antMatchers(HttpMethod.GET, "/cards/**").hasAuthority("SCOPE_proposal-scope")
                         .antMatchers(HttpMethod.POST, "/cards/**").hasAuthority("SCOPE_proposal-scope")
                         .antMatchers(HttpMethod.POST, "/proposals/**").hasAuthority("SCOPE_proposal-scope")
+                        .antMatchers("/actuator/**").permitAll() // apenas em modo de dev
                         .anyRequest().authenticated()
         ).csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);

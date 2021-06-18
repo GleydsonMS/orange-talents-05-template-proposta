@@ -1,5 +1,6 @@
 package br.com.zupedu.proposal.createProposal.controllers;
 
+import br.com.zupedu.proposal.config.metrics.ProposalMetrics;
 import br.com.zupedu.proposal.createProposal.dtos.ProposalResponse;
 import br.com.zupedu.proposal.createProposal.entities.Proposal;
 import br.com.zupedu.proposal.createProposal.repositories.ProposalRepository;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -20,8 +23,12 @@ public class ShowProposalController {
     @Autowired
     private ProposalRepository proposalRepository;
 
+    @Autowired
+    private ProposalMetrics proposalMetrics;
+
     @GetMapping("/proposals/{id}")
     public ResponseEntity<ProposalResponse> find(@PathVariable("id") String id) {
+        Long init = System.currentTimeMillis();
         UUID proposalId = UUID.fromString(id);
         Optional<Proposal> proposal = proposalRepository.findById(proposalId);
 
@@ -30,6 +37,9 @@ public class ShowProposalController {
         }
 
         ProposalResponse response = new ProposalResponse(proposal.get());
+        Long end = System.currentTimeMillis();
+        Long duration = end - init;
+        proposalMetrics.timerFindProposalRecord(Duration.of(duration, ChronoUnit.MILLIS));
         return ResponseEntity.ok(response);
     }
 }

@@ -1,5 +1,6 @@
 package br.com.zupedu.proposal.createProposal.controllers;
 
+import br.com.zupedu.proposal.config.metrics.ProposalMetrics;
 import br.com.zupedu.proposal.createProposal.dtos.NewProposalRequest;
 import br.com.zupedu.proposal.createProposal.entities.Proposal;
 import br.com.zupedu.proposal.createProposal.repositories.ProposalRepository;
@@ -33,6 +34,9 @@ public class CreateProposalController {
     @Autowired
     private CheckSolicitation solicitation;
 
+    @Autowired
+    private ProposalMetrics proposalMetrics;
+
     @PostMapping
     public ResponseEntity<?> createProposal(@RequestBody @Valid NewProposalRequest request,
                                             UriComponentsBuilder uriComponentsBuilder) {
@@ -46,6 +50,8 @@ public class CreateProposalController {
         proposalRepository.save(proposal);
 
         URI identifier = uriComponentsBuilder.path("/proposal/{id}").build(proposal.getId());
+
+        proposalMetrics.incrementProposalCreated();
 
         return ResponseEntity.created(identifier).build();
     }
