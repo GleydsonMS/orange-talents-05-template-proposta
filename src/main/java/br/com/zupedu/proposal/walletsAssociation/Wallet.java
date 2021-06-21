@@ -2,9 +2,7 @@ package br.com.zupedu.proposal.walletsAssociation;
 
 import br.com.zupedu.proposal.cardsAssociation.entities.Card;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -19,8 +17,9 @@ public class Wallet {
     @Email
     private String email;
 
-    @NotBlank
-    private String wallet;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private WalletName wallet;
 
     @NotNull
     @ManyToOne
@@ -29,7 +28,7 @@ public class Wallet {
     @Deprecated
     public Wallet() {}
 
-    public Wallet(String id, String email, String wallet, Card card) {
+    public Wallet(String id, String email, WalletName wallet, Card card) {
         this.id = id;
         this.email = email;
         this.wallet = wallet;
@@ -40,7 +39,7 @@ public class Wallet {
         return id;
     }
 
-    public String getWallet() {
+    public WalletName getWallet() {
         return wallet;
     }
 

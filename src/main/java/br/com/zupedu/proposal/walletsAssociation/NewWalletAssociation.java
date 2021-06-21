@@ -4,6 +4,7 @@ import br.com.zupedu.proposal.externalSystems.accounts.wallets.WalletAssociation
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class NewWalletAssociation {
 
@@ -11,13 +12,13 @@ public class NewWalletAssociation {
     @Email
     private String email;
 
-    @NotBlank
-    private String wallet;
+    @NotNull
+    private WalletName wallet;
 
     @Deprecated
     public NewWalletAssociation() {}
 
-    public NewWalletAssociation(String email, String wallet) {
+    public NewWalletAssociation(String email, WalletName wallet) {
         this.email = email;
         this.wallet = wallet;
     }
@@ -26,11 +27,11 @@ public class NewWalletAssociation {
         return email;
     }
 
-    public String getWallet() {
+    public WalletName getWallet() {
         return wallet;
     }
 
     public WalletAssociationRequest toModel() {
-        return new WalletAssociationRequest(email, wallet);
+        return new WalletAssociationRequest(email, wallet.toString());
     }
 }

@@ -20,7 +20,7 @@ public class SendWalletAssociation {
 
         try {
             WalletAssociationResponse response = accountsIntegration.SendWalletAssociation(card.getId(), request);
-            return new Wallet(response.getId(), request.getEmail(), request.getCarteira(), card);
+            return new Wallet(response.getId(), request.getEmail(), WalletName.valueOf(request.getCarteira()), card);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
         }
