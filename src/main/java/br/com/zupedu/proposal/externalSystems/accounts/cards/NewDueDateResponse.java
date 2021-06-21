@@ -1,4 +1,4 @@
-package br.com.zupedu.proposal.externalSystems.accounts;
+package br.com.zupedu.proposal.externalSystems.accounts.cards;
 
 import br.com.zupedu.proposal.cardsAssociation.entities.DueDate;
 

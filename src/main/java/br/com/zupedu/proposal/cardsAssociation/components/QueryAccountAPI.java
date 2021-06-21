@@ -5,7 +5,7 @@ import br.com.zupedu.proposal.createProposal.entities.Proposal;
 import br.com.zupedu.proposal.createProposal.repositories.ProposalRepository;
 import br.com.zupedu.proposal.createProposal.enums.StatusSolicitation;
 import br.com.zupedu.proposal.externalSystems.accounts.AccountsIntegration;
-import br.com.zupedu.proposal.externalSystems.accounts.NewCardResponse;
+import br.com.zupedu.proposal.externalSystems.accounts.cards.NewCardResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

@@ -25,6 +25,9 @@ public class TravelNoticeController {
     @Autowired
     private TravelNoticeRepository travelNoticeRepository;
 
+    @Autowired
+    private SendTravelNotice sendTravelNotice;
+
     @PostMapping("/cards/{id}/travelnotice")
     public ResponseEntity<Void> create(@Valid @PathVariable("id") @NotBlank String cardId,
                                  @Valid @RequestBody NewTravelNoticeRequest request,
@@ -42,6 +45,9 @@ public class TravelNoticeController {
         String userAgent = httpServletRequest.getHeader("User-Agent");
 
         TravelNotice travelNotice = request.toModel(card, ip, userAgent);
+
+        sendTravelNotice.execute(travelNotice);
+
         travelNoticeRepository.save(travelNotice);
 
         return ResponseEntity.ok().build();

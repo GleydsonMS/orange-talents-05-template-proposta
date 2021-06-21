@@ -1,4 +1,4 @@
-package br.com.zupedu.proposal.externalSystems.accounts;
+package br.com.zupedu.proposal.externalSystems.accounts.blocks;
 
 import javax.validation.constraints.NotBlank;
 

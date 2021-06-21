@@ -3,7 +3,7 @@ package br.com.zupedu.proposal.cardsAssociation.components;
 import br.com.zupedu.proposal.createProposal.entities.Proposal;
 import br.com.zupedu.proposal.createProposal.enums.StatusSolicitation;
 import br.com.zupedu.proposal.externalSystems.accounts.AccountsIntegration;
-import br.com.zupedu.proposal.externalSystems.accounts.NewCardRequest;
+import br.com.zupedu.proposal.externalSystems.accounts.cards.NewCardRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

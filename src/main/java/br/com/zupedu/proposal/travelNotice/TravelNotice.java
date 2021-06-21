@@ -49,4 +49,16 @@ public class TravelNotice {
         this.ip = ip;
         this.userAgent = userAgent;
     }
+
+    public Card getCard() {
+        return card;
+    }
+
+    public String getTravelDestination() {
+        return travelDestination;
+    }
+
+    public LocalDateTime getEndOfTrip() {
+        return endOfTrip;
+    }
 }
