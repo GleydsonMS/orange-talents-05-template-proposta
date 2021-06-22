@@ -1,6 +1,7 @@
 package br.com.zupedu.proposal.createProposal.dtos;
 
 import br.com.zupedu.proposal.cardsAssociation.dtos.CardResponse;
+import br.com.zupedu.proposal.config.utils.EncryptProposalDocument;
 import br.com.zupedu.proposal.createProposal.entities.Proposal;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -28,7 +29,7 @@ public class ProposalResponse {
 
     public ProposalResponse(Proposal proposal) {
         this.id = proposal.getId();
-        this.documento = proposal.getDocument();
+        this.documento = EncryptProposalDocument.decodeHash(proposal.getDocument());
         this.email = proposal.getEmail();
         this.nome = proposal.getName();
         this.endereco = proposal.getAddress();

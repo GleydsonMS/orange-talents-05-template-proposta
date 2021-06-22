@@ -1,6 +1,7 @@
 package br.com.zupedu.proposal.createProposal.entities;
 
 import br.com.zupedu.proposal.cardsAssociation.entities.Card;
+import br.com.zupedu.proposal.config.utils.EncryptProposalDocument;
 import br.com.zupedu.proposal.createProposal.enums.StatusSolicitation;
 
 import javax.persistence.*;
@@ -50,7 +51,7 @@ public class Proposal {
                     @NotBlank String address,
                     @NotNull @Positive BigDecimal salary) {
         this.id = UUID.randomUUID();
-        this.document = document;
+        this.document = EncryptProposalDocument.genereteHash(document);
         this.email = email;
         this.name = name;
         this.address = address;
