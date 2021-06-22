@@ -7,6 +7,8 @@ import br.com.zupedu.proposal.createProposal.repositories.ProposalRepository;
 import br.com.zupedu.proposal.createProposal.components.CheckAlreadyExistDocument;
 import br.com.zupedu.proposal.createProposal.components.CheckSolicitation;
 import br.com.zupedu.proposal.externalSystems.solicitations.SolicitationIntegration;
+import io.opentracing.Span;
+import io.opentracing.Tracer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,9 +39,16 @@ public class CreateProposalController {
     @Autowired
     private ProposalMetrics proposalMetrics;
 
+    @Autowired
+    private Tracer tracer;
+
     @PostMapping
     public ResponseEntity<?> createProposal(@RequestBody @Valid NewProposalRequest request,
                                             UriComponentsBuilder uriComponentsBuilder) {
+        Span activeSpan = tracer.activeSpan();
+        activeSpan.setTag("api.name", "proposal");
+        activeSpan.setBaggageItem("api.name", "proposal");
+        activeSpan.log("Cadastro de uma proposta");
 
         checkAlreadyExistDocument.check(request, proposalRepository);
 

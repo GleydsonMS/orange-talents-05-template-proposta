@@ -2,6 +2,8 @@ package br.com.zupedu.proposal.cardBlocking;
 
 import br.com.zupedu.proposal.cardsAssociation.entities.Card;
 import br.com.zupedu.proposal.cardsAssociation.repositories.CardRepository;
+import io.opentracing.Span;
+import io.opentracing.Tracer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +27,16 @@ public class CardBlockingController {
     @Autowired
     private SendCardBlocked sendCardBlocked;
 
+    @Autowired
+    private Tracer tracer;
+
     @PostMapping("/cards/{id}/blocking")
     public ResponseEntity<Void> createBloking(@PathVariable("id") String cardId,
                                               HttpServletRequest request) {
+        Span activeSpan = tracer.activeSpan();
+        activeSpan.setTag("api.name", "proposal");
+        activeSpan.setBaggageItem("api.name", "proposal");
+        activeSpan.log("Bloqueio de um cartão");
 
         Optional<Card> checkCardExists = cardRepository.findById(cardId);
 
